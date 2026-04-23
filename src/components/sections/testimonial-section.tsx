@@ -18,62 +18,63 @@ export function TestimonialSection({
   brandName,
 }: TestimonialSectionProps) {
   return (
-    <section className="bg-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section className="bg-bg-elevated border-t border-border border-b">
+      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-24">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-sm font-semibold text-brand uppercase tracking-wider">
+          <span className="text-sm font-semibold text-brand tracking-wide">
             {kicker}
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-fg mt-4 leading-tight">
+          <h2 className="text-[40px] lg:text-[40px] md:text-[32px] sm:text-[26px] font-bold text-fg mt-3 leading-[1.15] tracking-tight">
             {heading}
           </h2>
         </div>
 
         {/* Testimonial card */}
-        <div className="border border-border rounded-lg overflow-hidden">
+        <div className="max-w-[960px] mx-auto bg-surface border border-border rounded-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Left media */}
-            <div className="relative">
-              <PlaceholderImage className="aspect-video lg:aspect-auto lg:h-full w-full rounded-none" />
+            <div className="relative bg-bg-sunken aspect-square flex items-center justify-center">
+              <PlaceholderImage className="w-full h-full rounded-none border-0" />
               {/* Play button overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-brand/90 flex items-center justify-center hover:bg-brand transition-colors cursor-pointer">
-                  <svg className="w-6 h-6 text-brand-fg ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <button className="w-16 h-16 rounded-full bg-white/15 backdrop-blur-lg border border-white/20 flex items-center justify-center text-white hover:bg-white/25 hover:scale-105 transition-all duration-150 cursor-pointer">
+                  <svg className="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
-                </div>
+                </button>
               </div>
             </div>
 
             {/* Right content */}
-            <div className="p-8 lg:p-12 flex flex-col justify-center gap-6">
+            <div className="p-10 lg:p-12 flex flex-col justify-center gap-5">
               {/* 5 stars */}
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                  <span key={i} className="text-brand">
+                    <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                  </span>
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-lg text-fg leading-relaxed">
+              <blockquote className="text-base text-fg leading-[1.65] italic">
                 &ldquo;{quote}&rdquo;
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold text-fg">{authorName}</p>
-                  <p className="text-sm text-fg-muted">{authorPosition}</p>
+                  <p className="text-sm font-semibold text-fg">{authorName}</p>
+                  <p className="text-[13px] text-fg-subtle">{authorPosition}</p>
                 </div>
-                <div className="flex items-center gap-2 text-fg-subtle">
-                  <svg className="w-6 h-6" viewBox="0 0 32 32" fill="none">
-                    <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="16" cy="16" r="6" fill="currentColor" opacity="0.3" />
+                <div className="flex items-center gap-1.5 text-fg-muted text-sm font-semibold">
+                  <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="4" />
                   </svg>
-                  <span className="text-sm font-medium">{brandName}</span>
+                  {brandName}
                 </div>
               </div>
             </div>
@@ -81,26 +82,26 @@ export function TestimonialSection({
         </div>
 
         {/* Carousel controls */}
-        <div className="flex items-center justify-center gap-4 mt-8">
+        <div className="flex items-center justify-between max-w-[960px] mx-auto mt-7">
           <div className="flex gap-2">
-            {[0, 1, 2].map((dot) => (
+            {[0, 1, 2, 3, 4].map((dot) => (
               <span
                 key={dot}
-                className={`w-2.5 h-2.5 rounded-full ${
-                  dot === 0 ? "bg-brand" : "bg-border-strong"
+                className={`w-2 h-2 rounded-full transition-colors duration-150 cursor-pointer ${
+                  dot === 0 ? "bg-brand" : "bg-fg-faint"
                 }`}
               />
             ))}
           </div>
           <div className="flex gap-2">
-            <button className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-fg-muted hover:text-fg hover:border-border-strong transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            <button className="w-10 h-10 rounded-full border border-border-strong flex items-center justify-center text-fg-muted hover:border-fg-subtle hover:text-fg transition-all duration-150">
+              <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
             </button>
-            <button className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-fg-muted hover:text-fg hover:border-border-strong transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <button className="w-10 h-10 rounded-full border border-border-strong flex items-center justify-center text-fg-muted hover:border-fg-subtle hover:text-fg transition-all duration-150">
+              <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
           </div>

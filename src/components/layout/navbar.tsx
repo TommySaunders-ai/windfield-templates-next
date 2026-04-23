@@ -14,24 +14,24 @@ export function Navbar({ logo, links, phone, cta }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-bg/90 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav className="sticky top-0 z-50 bg-bg border-b border-border">
+      <div className="max-w-7xl mx-auto px-10 lg:px-10 md:px-6 sm:px-5">
+        <div className="flex items-center h-16 gap-8">
           {/* Logo */}
-          <a href="/" className="text-lg font-bold text-fg">
+          <a href="/" className="text-lg font-bold text-fg tracking-tight shrink-0">
             {logo}
           </a>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-7 flex-1 min-w-0">
             {links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className={`px-3 py-2 text-sm rounded-md transition-colors ${
+                className={`text-sm whitespace-nowrap transition-colors duration-150 ${
                   link.active
-                    ? "text-fg bg-surface"
-                    : "text-fg-muted hover:text-fg hover:bg-surface-hover"
+                    ? "text-fg"
+                    : "text-fg-muted hover:text-fg"
                 }`}
               >
                 {link.label}
@@ -40,9 +40,14 @@ export function Navbar({ logo, links, phone, cta }: NavbarProps) {
           </div>
 
           {/* Desktop right side */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3 shrink-0">
             {phone && (
-              <span className="text-sm text-fg-muted">{phone}</span>
+              <a
+                href="tel:1888123456"
+                className="text-[13px] text-fg-muted border border-border rounded-lg px-4 py-2 hover:border-border-strong hover:text-fg transition-all duration-150"
+              >
+                {phone}
+              </a>
             )}
             {cta && (
               <Button href={cta.href} size="sm">
@@ -53,7 +58,7 @@ export function Navbar({ logo, links, phone, cta }: NavbarProps) {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 text-fg-muted hover:text-fg transition-colors"
+            className="md:hidden ml-auto p-2 text-fg hover:text-fg transition-colors"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -61,7 +66,7 @@ export function Navbar({ logo, links, phone, cta }: NavbarProps) {
               {open ? (
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M3 6h18M3 18h18" />
               )}
             </svg>
           </button>
@@ -71,12 +76,12 @@ export function Navbar({ logo, links, phone, cta }: NavbarProps) {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden border-t border-border bg-bg">
-          <div className="px-4 py-4 flex flex-col gap-2">
+          <div className="px-5 py-5 flex flex-col gap-1">
             {links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className={`px-3 py-2 text-sm rounded-md transition-colors ${
+                className={`px-3 py-2.5 text-sm rounded-lg transition-colors duration-150 ${
                   link.active
                     ? "text-fg bg-surface"
                     : "text-fg-muted hover:text-fg hover:bg-surface-hover"
@@ -86,10 +91,10 @@ export function Navbar({ logo, links, phone, cta }: NavbarProps) {
               </a>
             ))}
             {phone && (
-              <span className="px-3 py-2 text-sm text-fg-muted">{phone}</span>
+              <span className="px-3 py-2.5 text-sm text-fg-muted">{phone}</span>
             )}
             {cta && (
-              <div className="px-3 pt-2">
+              <div className="px-3 pt-3">
                 <Button href={cta.href} size="sm" className="w-full">
                   {cta.label}
                 </Button>

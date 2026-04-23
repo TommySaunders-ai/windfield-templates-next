@@ -14,41 +14,42 @@ export function Footer({
   socials,
 }: FooterProps) {
   return (
-    <footer className="bg-bg-sunken border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-bg-elevated border-t border-border">
+      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 pt-14">
+        {/* Top grid: brand 1.5fr + link cols 1fr each + socials 1fr */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-10">
           {/* Brand column */}
-          <div className="flex flex-col gap-4">
-            <a href="/" className="text-lg font-bold text-fg">
+          <div className="flex flex-col">
+            <a href="/" className="text-lg font-bold text-fg tracking-tight mb-4">
               {logo}
             </a>
-            <p className="text-sm text-fg-muted">{newsletterText}</p>
-            <form className="flex gap-2">
+            <p className="text-[13px] text-fg-muted mb-3">{newsletterText}</p>
+            <form className="flex gap-2 mb-3">
               <input
                 type="email"
-                placeholder="Your email"
-                className="flex-1 px-3 py-2 text-sm bg-surface border border-border rounded-lg text-fg placeholder:text-fg-faint focus:outline-none focus:border-brand"
+                placeholder="Enter your email"
+                className="flex-1 h-10 px-3 bg-bg border border-border rounded-md text-[13px] text-fg placeholder:text-fg-faint hover:border-border-strong focus:outline-none focus:border-brand transition-colors duration-150"
               />
               <button
                 type="submit"
-                className="px-4 py-2 text-sm font-medium bg-brand text-brand-fg rounded-lg hover:bg-brand-hover transition-colors"
+                className="inline-flex items-center justify-center h-10 px-4 text-[13px] font-semibold text-fg bg-transparent border border-border-strong rounded-md hover:border-fg-subtle hover:bg-surface transition-all duration-150 cursor-pointer"
               >
                 Subscribe
               </button>
             </form>
-            <p className="text-xs text-fg-subtle">{disclaimer}</p>
+            <p className="text-[11px] text-fg-faint leading-normal">{disclaimer}</p>
           </div>
 
           {/* Link columns */}
           {columns.map((col) => (
-            <div key={col.title} className="flex flex-col gap-4">
-              <h4 className="text-sm font-semibold text-fg">{col.title}</h4>
-              <ul className="flex flex-col gap-2">
+            <div key={col.title} className="flex flex-col">
+              <h4 className="text-[13px] font-semibold text-fg mb-4">{col.title}</h4>
+              <ul className="flex flex-col gap-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-fg-muted hover:text-fg transition-colors"
+                      className="text-[13px] text-fg-muted hover:text-fg transition-colors duration-150"
                     >
                       {link.label}
                     </a>
@@ -59,14 +60,14 @@ export function Footer({
           ))}
 
           {/* Socials column */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-sm font-semibold text-fg">Social</h4>
-            <ul className="flex flex-col gap-2">
+          <div className="flex flex-col">
+            <h4 className="text-[13px] font-semibold text-fg mb-4">Follow Us</h4>
+            <ul className="flex flex-col gap-2.5">
               {socials.map((social) => (
                 <li key={social.label}>
                   <a
                     href={social.href}
-                    className="text-sm text-fg-muted hover:text-fg transition-colors"
+                    className="text-[13px] text-fg-muted hover:text-fg transition-colors duration-150 inline-flex items-center gap-2"
                   >
                     {social.label}
                   </a>
@@ -77,16 +78,19 @@ export function Footer({
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-fg-subtle">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-5 border-t border-border text-xs text-fg-subtle">
+          <span>
             &copy; {new Date().getFullYear()} {logo}. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <a href="#" className="text-xs text-fg-subtle hover:text-fg-muted transition-colors">
+          </span>
+          <div className="flex gap-6">
+            <a href="#" className="underline underline-offset-2 hover:text-fg transition-colors duration-150">
               Privacy Policy
             </a>
-            <a href="#" className="text-xs text-fg-subtle hover:text-fg-muted transition-colors">
+            <a href="#" className="underline underline-offset-2 hover:text-fg transition-colors duration-150">
               Terms of Service
+            </a>
+            <a href="#" className="underline underline-offset-2 hover:text-fg transition-colors duration-150">
+              Cookie Settings
             </a>
           </div>
         </div>

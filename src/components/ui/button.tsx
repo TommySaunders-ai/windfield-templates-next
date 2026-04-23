@@ -9,17 +9,17 @@ interface ButtonProps {
 }
 
 const base =
-  "inline-flex items-center justify-center font-medium rounded-lg transition-colors cursor-pointer";
+  "inline-flex items-center justify-center gap-2 font-semibold rounded-lg whitespace-nowrap transition-all duration-150 cursor-pointer";
 
 const variants = {
-  primary: "bg-brand text-brand-fg hover:bg-brand-hover",
+  primary: "bg-brand text-brand-fg border border-transparent hover:bg-brand-hover",
   outline:
-    "border border-border-strong text-fg hover:bg-surface-hover hover:border-border-strong",
+    "bg-transparent text-fg border border-border-strong hover:border-fg-subtle hover:bg-surface",
 };
 
 const sizes = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-base",
+  sm: "h-9 px-4 text-[13px]",
+  md: "h-11 px-6 text-sm",
 };
 
 export function Button({
@@ -29,7 +29,7 @@ export function Button({
   href,
   className = "",
 }: ButtonProps) {
-  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`.trim();
 
   if (href) {
     return (

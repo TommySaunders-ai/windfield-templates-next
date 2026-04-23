@@ -20,25 +20,25 @@ export function AboutSection({
 }: AboutSectionProps) {
   return (
     <section className="bg-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-20 md:gap-10 items-start">
           {/* Left image */}
-          <PlaceholderImage className="aspect-square w-full" />
+          <PlaceholderImage className="aspect-square w-full min-h-[320px]" />
 
           {/* Right content */}
-          <div className="flex flex-col gap-6">
-            <span className="text-sm font-semibold text-brand uppercase tracking-wider">
+          <div className="flex flex-col">
+            <span className="text-sm font-semibold text-brand tracking-wide mb-3">
               {kicker}
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-fg leading-tight">
+            <h2 className="text-[40px] lg:text-[40px] md:text-[32px] sm:text-[26px] font-bold text-fg leading-[1.15] tracking-tight">
               {heading}
             </h2>
-            <p className="text-fg-muted">{body}</p>
-            <ul className="flex flex-col gap-3">
+            <p className="text-fg-muted leading-relaxed mt-5 mb-6">{body}</p>
+            <ul className="flex flex-col gap-3 mb-8">
               {bullets.map((bullet, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-brand flex-shrink-0" />
-                  <span className="text-fg-muted">{bullet}</span>
+                  <span className="mt-1.5 w-2 h-2 rounded-full bg-brand shrink-0" />
+                  <span className="text-sm text-fg-muted leading-normal">{bullet}</span>
                 </li>
               ))}
             </ul>

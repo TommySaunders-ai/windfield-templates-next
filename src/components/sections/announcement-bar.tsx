@@ -6,11 +6,14 @@ interface AnnouncementBarProps {
 
 export function AnnouncementBar({ text, linkText, linkHref }: AnnouncementBarProps) {
   return (
-    <section className="bg-brand">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-center">
-        <p className="text-sm text-brand-fg font-medium">
+    <section className="bg-bg border-b border-border">
+      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-2.5 text-center">
+        <p className="text-[13px] text-fg-muted">
           {text}{" "}
-          <a href={linkHref} className="underline hover:opacity-80 transition-opacity">
+          <a
+            href={linkHref}
+            className="text-brand underline underline-offset-2 hover:text-brand-hover transition-colors duration-150"
+          >
             {linkText}
           </a>
         </p>
