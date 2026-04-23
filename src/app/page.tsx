@@ -136,12 +136,14 @@ export default function Home() {
       {/* ═══ SERVICES ═══ */}
       <section className="py-20 max-md:py-14 border-t border-border">
         <div className="max-w-[1280px] mx-auto px-10 max-md:px-5">
-          <div className="grid grid-cols-[1fr_2fr] gap-10 mb-12 max-lg:grid-cols-1">
+          <div className="grid grid-cols-2 gap-10 mb-12 max-lg:grid-cols-1">
             <div>
               <p className="text-sm font-semibold text-brand tracking-wide mb-3">Services</p>
-              <h2 className="text-[40px] max-lg:text-3xl max-md:text-2xl font-bold tracking-tight leading-[1.15] text-fg mb-5">Short headline of how the company can help</h2>
-              <p className="text-base text-fg-muted leading-relaxed mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-              <a href="#" className="inline-flex items-center h-11 px-6 bg-brand text-brand-fg font-semibold text-sm rounded-lg hover:bg-brand-hover transition-colors">Book a consultation</a>
+              <h2 className="text-[40px] max-lg:text-3xl max-md:text-2xl font-bold tracking-tight leading-[1.15] text-fg">Short headline of how the company can help</h2>
+            </div>
+            <div className="flex flex-col justify-end">
+              <p className="text-base text-fg-muted leading-relaxed mb-8">Elaborate on what the company does and how it helps clients or customers. This should give a broad overview of the services without going into too much detail.</p>
+              <div><a href="#" className="inline-flex items-center h-11 px-6 bg-brand text-brand-fg font-semibold text-sm rounded-lg hover:bg-brand-hover transition-colors">Book a consultation</a></div>
             </div>
           </div>
           <div className="grid grid-cols-2 max-md:grid-cols-1">
@@ -263,9 +265,9 @@ export default function Home() {
               <p className="text-[11px] text-fg-faint leading-relaxed">By subscribing you agree to with our <a href="#" className="underline underline-offset-2">Privacy Policy</a> and provide consent to receive updates from our company.</p>
             </div>
             {[
-              { title: "Column One", links: ["Link One","Link Two","Link Three","Link Four","Link Five"] },
-              { title: "Column Two", links: ["Link Six","Link Seven","Link Eight","Link More","Link Ten"] },
-              { title: "Follow Us", links: [
+              { title: "Company", links: ["About","Services","Pricing","Blog","Contact"] },
+              { title: "Resources", links: ["Help Center","Documentation","Guides","API Reference","Community"] },
+              { title: "Social", links: [
                 { name: "Facebook", icon: <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> },
                 { name: "Instagram", icon: <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5" fill="#111113"/><circle cx="17.5" cy="6.5" r="1.5"/></svg> },
                 { name: "X", icon: <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg> },
@@ -286,7 +288,7 @@ export default function Home() {
             ))}
           </div>
           <div className="flex items-center justify-between py-5 border-t border-border text-xs text-fg-subtle max-md:flex-col max-md:gap-3 max-md:text-center">
-            <span>&copy; 2025 Relume. All rights reserved.</span>
+            <span>&copy; {new Date().getFullYear()} Logo. All rights reserved.</span>
             <div className="flex gap-6">
               {["Privacy Policy","Terms of Service","Cookie Settings"].map((l, i) => (
                 <a key={i} href="#" className="underline underline-offset-2 hover:text-fg transition-colors">{l}</a>
