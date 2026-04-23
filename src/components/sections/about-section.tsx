@@ -20,8 +20,8 @@ export function AboutSection({
 }: AboutSectionProps) {
   return (
     <section className="bg-bg">
-      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-20 md:gap-10 items-start">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-10 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           {/* Left image */}
           <PlaceholderImage className="aspect-square w-full min-h-[320px]" />
 
@@ -30,7 +30,7 @@ export function AboutSection({
             <span className="text-sm font-semibold text-brand tracking-wide mb-3">
               {kicker}
             </span>
-            <h2 className="text-[40px] lg:text-[40px] md:text-[32px] sm:text-[26px] font-bold text-fg leading-[1.15] tracking-tight">
+            <h2 className="text-[26px] md:text-[32px] lg:text-[40px] font-bold text-fg leading-[1.15] tracking-tight">
               {heading}
             </h2>
             <p className="text-fg-muted leading-relaxed mt-5 mb-6">{body}</p>

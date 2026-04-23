@@ -13,11 +13,11 @@ export function Hero({ title, description, cta }: HeroProps) {
       {/* Green radial glow accent */}
       <div className="absolute -top-[200px] -right-[100px] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(29,185,84,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-20">
+      <div className="relative max-w-7xl mx-auto px-5 md:px-6 lg:px-10 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left content */}
           <div className="relative z-10">
-            <h1 className="text-[52px] lg:text-[52px] md:text-[40px] sm:text-4xl font-extrabold text-fg leading-[1.05] tracking-tight mb-5">
+            <h1 className="text-3xl sm:text-4xl md:text-[40px] lg:text-[52px] font-extrabold text-fg leading-[1.05] tracking-tight mb-5">
               {title}
             </h1>
             <p className="text-base text-fg-muted leading-relaxed max-w-[480px] mb-8">

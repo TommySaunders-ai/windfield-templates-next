@@ -15,7 +15,7 @@ export function Navbar({ logo, links, phone, cta }: NavbarProps) {
 
   return (
     <nav className="sticky top-0 z-50 bg-bg border-b border-border">
-      <div className="max-w-7xl mx-auto px-10 lg:px-10 md:px-6 sm:px-5">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-10">
         <div className="flex items-center h-16 gap-8">
           {/* Logo */}
           <a href="/" className="text-lg font-bold text-fg tracking-tight shrink-0">

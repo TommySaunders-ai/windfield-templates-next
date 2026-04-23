@@ -11,7 +11,7 @@ interface SubnavBannerProps {
 export function SubnavBanner({ items }: SubnavBannerProps) {
   return (
     <section className="bg-bg-elevated border-b border-border">
-      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item, i) => (
             <div

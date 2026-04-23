@@ -23,23 +23,23 @@ export function ServicesSection({
 }: ServicesSectionProps) {
   return (
     <section className="bg-bg border-t border-border">
-      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-20">
-        {/* Top section: kicker+heading left, body+CTA on right (but reference uses 1fr 2fr with content only on left) */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 mb-12">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-10 py-20">
+        {/* Top section: kicker+heading left, body+CTA right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
           <div className="flex flex-col">
             <span className="text-sm font-semibold text-brand tracking-wide mb-3">
               {kicker}
             </span>
-            <h2 className="text-[40px] lg:text-[40px] md:text-[32px] sm:text-[26px] font-bold text-fg leading-[1.15] tracking-tight">
+            <h2 className="text-[26px] md:text-[32px] lg:text-[40px] font-bold text-fg leading-[1.15] tracking-tight">
               {heading}
             </h2>
-            <p className="text-fg-muted leading-relaxed mt-5 mb-8">{body}</p>
+          </div>
+          <div className="flex flex-col justify-end">
+            <p className="text-fg-muted leading-relaxed mb-8">{body}</p>
             <div>
               <Button href={cta.href}>{cta.label}</Button>
             </div>
           </div>
-          {/* Empty right column to match reference 1fr 2fr layout */}
-          <div className="hidden lg:block" />
         </div>
 
         {/* Service cards 2x2 grid with collapsed borders */}

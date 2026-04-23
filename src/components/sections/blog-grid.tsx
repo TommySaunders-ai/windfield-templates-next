@@ -21,13 +21,13 @@ interface BlogGridProps {
 export function BlogGrid({ kicker, heading, body, cards, viewAllHref }: BlogGridProps) {
   return (
     <section className="bg-bg">
-      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-20">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-10 py-20">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-sm font-semibold text-brand tracking-wide">
             {kicker}
           </span>
-          <h2 className="text-[40px] lg:text-[40px] md:text-[32px] sm:text-[26px] font-bold text-fg mt-3 leading-[1.15] tracking-tight">
+          <h2 className="text-[26px] md:text-[32px] lg:text-[40px] font-bold text-fg mt-3 leading-[1.15] tracking-tight">
             {heading}
           </h2>
           <p className="text-fg-muted mt-4">{body}</p>

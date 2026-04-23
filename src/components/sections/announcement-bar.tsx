@@ -7,7 +7,7 @@ interface AnnouncementBarProps {
 export function AnnouncementBar({ text, linkText, linkHref }: AnnouncementBarProps) {
   return (
     <section className="bg-bg border-b border-border">
-      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-2.5 text-center">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-10 py-2.5 text-center">
         <p className="text-[13px] text-fg-muted">
           {text}{" "}
           <a

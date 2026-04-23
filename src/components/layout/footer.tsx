@@ -15,7 +15,7 @@ export function Footer({
 }: FooterProps) {
   return (
     <footer className="bg-bg-elevated border-t border-border">
-      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 pt-14">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-10 pt-14">
         {/* Top grid: brand 1.5fr + link cols 1fr each + socials 1fr */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-10">
           {/* Brand column */}
@@ -61,7 +61,7 @@ export function Footer({
 
           {/* Socials column */}
           <div className="flex flex-col">
-            <h4 className="text-[13px] font-semibold text-fg mb-4">Follow Us</h4>
+            <h4 className="text-[13px] font-semibold text-fg mb-4">Social</h4>
             <ul className="flex flex-col gap-2.5">
               {socials.map((social) => (
                 <li key={social.label}>

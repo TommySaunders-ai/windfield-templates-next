@@ -10,7 +10,7 @@ interface LogoBarProps {
 export function LogoBar({ title, logos }: LogoBarProps) {
   return (
     <section className="border-b border-border">
-      <div className="max-w-7xl mx-auto px-10 md:px-6 sm:px-5 py-12">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-10 py-12">
         <p className="text-center text-sm text-fg-subtle mb-7">{title}</p>
         <div className="flex flex-wrap items-center justify-center gap-y-8 gap-x-12">
           {logos.map((logo, i) => (
