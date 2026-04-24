@@ -19,8 +19,22 @@
   --color-border: #27272a;
   --color-border-strong: #3f3f46;
   --color-border-subtle: #1e1e22;
+  --color-accent-blue: #0A84FF;
+  --color-accent-gold: #FF9F0A;
+  --color-accent-green: #30D158;
+  --color-accent-red: #FF453A;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-amber: #d97706;
+  --color-accent-cyan: #0891b2;
+  --color-math-blue: #2460ff;
+  --color-fg-warm: #f2ede6;
+  --color-fg-warm-muted: #9e9a93;
+  --color-card-bg: #0d0d10;
+  --color-card-border: rgba(242, 237, 230, 0.06);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+  --font-serif: var(--font-playfair);
+  --font-dm: var(--font-dm-mono);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
