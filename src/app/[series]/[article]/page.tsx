@@ -43,7 +43,7 @@ export default async function ArticlePage({
       articleTitle={article.title}
       seriesSlug={series.slug}
     >
-      <div className="px-6 md:px-10 py-8 max-w-none">
+      <div className="px-6 md:px-10 py-8 max-w-full overflow-x-hidden">
         <ArticleHeader
           seriesNumber={series.number}
           articleNumber={article.number}

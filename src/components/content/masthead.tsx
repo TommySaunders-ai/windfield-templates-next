@@ -7,7 +7,7 @@ interface MastheadProps {
 
 export function Masthead({ seriesLabel, title, subtitle, count }: MastheadProps) {
   return (
-    <div className="border-b border-border py-8 px-8 text-center bg-[linear-gradient(180deg,rgba(29,185,84,0.04),transparent)]">
+    <div className="border-b border-border py-8 px-6 md:px-10 text-center bg-[linear-gradient(180deg,rgba(29,185,84,0.04),transparent)] overflow-hidden">
       <p className="text-[10px] font-semibold tracking-[.2em] uppercase text-brand mb-4">
         {seriesLabel}
       </p>

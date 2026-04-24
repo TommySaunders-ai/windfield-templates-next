@@ -9,7 +9,7 @@ interface IndexGridProps {
 
 export function IndexGrid({ articles, seriesSlug, seriesColor }: IndexGridProps) {
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-px border border-border bg-border rounded-xl overflow-hidden my-7">
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-px border border-border bg-border rounded-xl overflow-hidden my-7 w-full">
       {articles.map((article) => (
         <Link
           key={article.slug}

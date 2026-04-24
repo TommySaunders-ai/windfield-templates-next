@@ -42,7 +42,7 @@ export default function Home() {
         </div>
 
         {/* Series grid */}
-        <div className="relative z-10 grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-px bg-border border border-border rounded-xl overflow-hidden mt-10">
+        <div className="relative z-10 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-px bg-border border border-border rounded-xl overflow-hidden mt-10 w-full">
           {allSeries.map((series) => (
             <Link
               key={series.slug}

@@ -55,6 +55,10 @@ ul { list-style: none; }
 ::selection { background: var(--color-brand-muted); color: var(--color-brand); }
 
 /* Documentation prose */
+.prose {
+  max-width: 100%;
+  overflow-x: auto;
+}
 .prose p {
   margin-bottom: 1.45rem;
   font-size: 1.02rem;
