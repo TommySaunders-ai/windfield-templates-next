@@ -15,8 +15,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Windfield IO Templates — Next.js",
-  description: "Relume-style templates rebuilt with Next.js 16, React 19, TypeScript 5, and Tailwind CSS 4 using the Windfield IO MCP design system.",
+  title: "Project IO — The Marketing Operating System",
+  description: "Fourteen series, 129 articles mapping every operational layer of a modern marketing organization — from Knowledge Base through Data Governance — plus the complete Prompt Library OS.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
