@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { DocLayout } from "@/components/layout/doc-layout";
 import { ArticleHeader } from "@/components/content/article-header";
 import { ArticleFooter } from "@/components/content/article-footer";
 import { getArticle, generateStaticArticles } from "@/data/series";
@@ -38,11 +37,7 @@ export default async function ArticlePage({
   const Content = getArticleContent(series.slug, article.slug);
 
   return (
-    <DocLayout
-      seriesTitle={series.title}
-      articleTitle={article.title}
-      seriesSlug={series.slug}
-    >
+    <>
       <div className="px-6 md:px-10 py-8 max-w-full overflow-x-hidden">
         <ArticleHeader
           seriesNumber={series.number}
@@ -67,6 +62,6 @@ export default async function ArticlePage({
           articleNumber={article.number}
         />
       </div>
-    </DocLayout>
+    </>
   );
 }

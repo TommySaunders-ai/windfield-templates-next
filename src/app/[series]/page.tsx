@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { DocLayout } from "@/components/layout/doc-layout";
 import { Masthead } from "@/components/content/masthead";
 import { IndexGrid } from "@/components/content/index-grid";
 import { allSeries, getSeriesBySlug, generateStaticSeries } from "@/data/series";
@@ -26,7 +25,7 @@ export default async function SeriesPage({ params }: { params: Promise<{ series:
   const totalSeries = allSeries.length;
 
   return (
-    <DocLayout seriesTitle={series.title} seriesSlug={series.slug}>
+    <>
       <Masthead
         seriesLabel={`Project IO \u00b7 Series ${series.number} of ${String(totalSeries).padStart(2, "0")}`}
         title={series.title}
@@ -40,6 +39,6 @@ export default async function SeriesPage({ params }: { params: Promise<{ series:
           seriesColor={series.color}
         />
       </div>
-    </DocLayout>
+    </>
   );
 }

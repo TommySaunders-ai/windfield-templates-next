@@ -2,11 +2,37 @@
 
 import Link from "next/link";
 
+function SearchIcon({ size = 13 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <path d="M21 21l-4.35-4.35" />
+    </svg>
+  );
+}
+
+function ChevronSep() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="io-bc-sep">
+      <path d="M6 3l5 5-5 5" />
+    </svg>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 12h18M3 6h18M3 18h18" />
+    </svg>
+  );
+}
+
 interface TopbarProps {
   seriesTitle?: string;
   articleTitle?: string;
   seriesSlug?: string;
   onMenuToggle?: () => void;
+  onSearchOpen?: () => void;
 }
 
 export function Topbar({
@@ -14,55 +40,62 @@ export function Topbar({
   articleTitle,
   seriesSlug,
   onMenuToggle,
+  onSearchOpen,
 }: TopbarProps) {
   return (
-    <header className="sticky top-0 z-40 bg-bg/[0.92] backdrop-blur-[12px] border-b border-border px-6 md:px-8 flex items-center justify-between min-h-[48px]">
-      <div className="flex items-center gap-3">
+    <div className="io-topbar">
+      <div className="io-breadcrumbs">
         {/* Mobile hamburger */}
         {onMenuToggle && (
           <button
-            className="min-[880px]:hidden p-1.5 text-fg-muted hover:text-fg rounded-md hover:bg-surface transition-colors"
+            className="min-[880px]:hidden"
             onClick={onMenuToggle}
             aria-label="Toggle sidebar"
+            style={{ color: "var(--iol-text-muted)", padding: 4, marginRight: 4 }}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            <MenuIcon />
           </button>
         )}
 
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-[11px]">
-          <Link href="/" className="text-fg-muted hover:text-fg transition-colors font-medium">
-            Project IO
-          </Link>
+        <Link href="/">IO Marketing OS</Link>
 
-          {seriesTitle && (
-            <>
-              <span className="text-fg-faint select-none">/</span>
-              <Link
-                href={seriesSlug ? `/${seriesSlug}` : "/"}
-                className="text-brand font-semibold hover:text-brand/80 transition-colors"
-              >
-                {seriesTitle}
-              </Link>
-            </>
-          )}
+        {seriesTitle && (
+          <>
+            <ChevronSep />
+            <Link
+              href={seriesSlug ? `/${seriesSlug}` : "/"}
+              style={{ color: "var(--iol-text-secondary)" }}
+            >
+              {seriesTitle}
+            </Link>
+          </>
+        )}
 
-          {articleTitle && (
-            <>
-              <span className="text-fg-faint select-none">/</span>
-              <span className="text-fg font-semibold truncate max-w-[200px]">{articleTitle}</span>
-            </>
-          )}
-        </nav>
+        {articleTitle && (
+          <>
+            <ChevronSep />
+            <span className="io-bc-current">{articleTitle}</span>
+          </>
+        )}
       </div>
 
-      {/* Right side */}
-      <div className="flex items-center gap-3">
-        <span className="hidden md:flex items-center gap-1.5 text-[9px] font-semibold tracking-[.15em] uppercase text-fg-faint">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+      <div className="io-topbar-actions">
+        {/* Search pill */}
+        <div
+          className="io-topbar-search hidden md:flex"
+          onClick={onSearchOpen}
+        >
+          <SearchIcon />
+          <span>Search...</span>
+          <kbd>Cmd+K</kbd>
+        </div>
+
+        {/* Status */}
+        <div className="io-topbar-status hidden md:flex">
+          <span className="io-topbar-status-dot" />
           Windfield IO
-        </span>
+        </div>
       </div>
-    </header>
+    </div>
   );
 }

@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { DocLayout } from "@/components/layout/doc-layout";
 import { allSeries } from "@/data/series";
 
 export default function Home() {
   return (
-    <DocLayout>
+    <>
       {/* Hero */}
       <section
         className="relative overflow-hidden border-b border-border px-6 md:px-10 py-14 md:py-20"
@@ -77,6 +76,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-    </DocLayout>
+    </>
   );
 }
