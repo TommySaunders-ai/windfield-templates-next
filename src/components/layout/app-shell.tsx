@@ -186,10 +186,55 @@ export function AppShell({ children }: { children: ReactNode }) {
                 </div>
               </>
             ) : !sidebarCollapsed ? (
-              <div className="wf-subnav-empty">
-                <Icon name="layers" size={20} style={{ opacity: 0.3 }} />
-                <span>Select a series from the top navigation</span>
-              </div>
+              <>
+                {/* Home: show all series as sidebar items */}
+                <div className="wf-subnav-series-title" style={{ "--wf-sec-color": "#1db954" } as React.CSSProperties}>
+                  <span className="wf-subnav-series-dot" style={{ background: "#1db954" }} />
+                  <span>IO Marketing OS</span>
+                </div>
+
+                <div className="wf-subnav-section">
+                  <button
+                    className="wf-subnav-section-toggle"
+                    onClick={() => toggleSection("all-series")}
+                  >
+                    <span
+                      className="wf-subnav-section-chev"
+                      style={{
+                        transform: collapsed["all-series"]
+                          ? "rotate(0deg)"
+                          : "rotate(90deg)",
+                      }}
+                    >
+                      <Icon name="chevR" size={10} />
+                    </span>
+                    <span>SERIES</span>
+                    <span className="wf-subnav-section-count">
+                      {allSeries.length}
+                    </span>
+                  </button>
+
+                  {!collapsed["all-series"] && (
+                    <div className="wf-subnav-items">
+                      {allSeries.map((s) => (
+                        <Link
+                          key={s.slug}
+                          href={`/${s.slug}`}
+                          className="wf-subnav-item"
+                          style={
+                            {
+                              "--wf-item-color": s.color,
+                            } as React.CSSProperties
+                          }
+                        >
+                          <span className="wf-subnav-item-num">{s.number}</span>
+                          <span className="wf-subnav-item-label">{s.title}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </>
             ) : null}
           </div>
 
