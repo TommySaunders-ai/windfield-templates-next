@@ -109,8 +109,8 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span className="wf-subnav-mark">IO</span>
             {!sidebarCollapsed && (
               <div className="wf-subnav-brand">
-                <span className="wf-subnav-brand-name">IO MARKETING OS</span>
-                <span className="wf-subnav-brand-sub">Complete Series</span>
+                <span className="wf-subnav-brand-name">8630 GREEN HILLS</span>
+                <span className="wf-subnav-brand-sub">Property Operating System</span>
               </div>
             )}
             {!sidebarCollapsed && (
@@ -190,7 +190,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 {/* Home: show all series as sidebar items */}
                 <div className="wf-subnav-series-title" style={{ "--wf-sec-color": "#1db954" } as React.CSSProperties}>
                   <span className="wf-subnav-series-dot" style={{ background: "#1db954" }} />
-                  <span>IO Marketing OS</span>
+                  <span>8630 Green Hills</span>
                 </div>
 
                 <div className="wf-subnav-section">
@@ -354,8 +354,8 @@ export function AppShell({ children }: { children: ReactNode }) {
             <div className="wf-subnav-titlebar">
               <span className="wf-subnav-mark">IO</span>
               <div className="wf-subnav-brand">
-                <span className="wf-subnav-brand-name">IO MARKETING OS</span>
-                <span className="wf-subnav-brand-sub">Complete Series</span>
+                <span className="wf-subnav-brand-name">8630 GREEN HILLS</span>
+                <span className="wf-subnav-brand-sub">Property Operating System</span>
               </div>
               <button
                 className="wf-subnav-collapse-btn"

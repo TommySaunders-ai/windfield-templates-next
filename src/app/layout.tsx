@@ -29,8 +29,8 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Project IO — The Marketing Operating System",
-  description: "Fourteen series, 129 articles mapping every operational layer of a modern marketing organization — from Knowledge Base through Data Governance — plus the complete Prompt Library OS.",
+  title: "8630 N Green Hills Road — Property Operating System",
+  description: "Master property profile for 8630 N Green Hills Road Office Building. 10,500 SF Class-A, KC Northland. Sales, marketing, prospecting, and AI operations for medical user targeting.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
