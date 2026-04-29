@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
-import { ArticleHeader } from "@/components/content/article-header";
-import { ArticleFooter } from "@/components/content/article-footer";
-import { getArticle, generateStaticArticles } from "@/data/series";
+import Link from "next/link";
+import { allSeries, getArticle, generateStaticArticles } from "@/data/series";
 import { getArticleContent } from "@/data/articles";
 
 export function generateStaticParams() {
@@ -38,29 +37,80 @@ export default async function ArticlePage({
 
   return (
     <>
-      <div className="px-6 md:px-10 py-8 max-w-full overflow-x-hidden">
-        <ArticleHeader
-          seriesNumber={series.number}
-          articleNumber={article.number}
-          totalArticles={String(totalArticles)}
-          title={article.title}
-          deck={article.subtitle || ""}
+      {/* AO-style Hero */}
+      <div className="wf-ao-hero">
+        <div
+          className="wf-ao-hero-gradient"
+          style={{
+            background: `linear-gradient(135deg, ${series.color}10, transparent 50%, ${series.color}08)`,
+          }}
         />
+        <div className="wf-ao-hero-watermark">IO</div>
 
+        <div className="wf-ao-hero-kicker">
+          <span
+            className="wf-ao-hero-kicker-bar"
+            style={{ background: series.color }}
+          />
+          <span className="wf-ao-hero-kicker-label">
+            Series {series.number} &middot; Article {article.number} of {totalArticles}
+          </span>
+        </div>
+
+        <h1 className="wf-ao-hero-title">
+          {article.title}
+        </h1>
+
+        {article.subtitle && (
+          <p className="wf-ao-hero-desc">{article.subtitle}</p>
+        )}
+
+        <div className="wf-ao-stats">
+          <div className="wf-ao-stat">
+            <span className="wf-ao-stat-num" style={{ color: series.color }}>{article.number}</span>
+            <span>of {totalArticles}</span>
+          </div>
+          <span className="wf-ao-stat-divider" />
+          <div className="wf-ao-stat">
+            <span style={{ color: series.color }}>{series.title}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Article content */}
+      <div className="wf-article-body">
         <div className="prose">
           {Content ? <Content /> : (
-            <p className="text-fg-muted italic">
+            <p style={{ color: "var(--wf-text-muted)", fontStyle: "italic" }}>
               Content for this article is being migrated. Check back soon.
             </p>
           )}
         </div>
 
-        <ArticleFooter
-          prev={prev ? { slug: prev.slug, title: prev.title } : undefined}
-          next={next ? { slug: next.slug, title: next.title } : undefined}
-          seriesSlug={series.slug}
-          articleNumber={article.number}
-        />
+        {/* Prev / Next navigation */}
+        <div className="wf-article-nav">
+          {prev ? (
+            <Link href={`/${series.slug}/${prev.slug}`} className="wf-article-nav-card">
+              <span className="wf-article-nav-label">Previous</span>
+              <span className="wf-article-nav-title">&larr; {prev.title}</span>
+            </Link>
+          ) : (
+            <div />
+          )}
+
+          {next ? (
+            <Link href={`/${series.slug}/${next.slug}`} className="wf-article-nav-card wf-article-nav-card-next">
+              <span className="wf-article-nav-label">Next</span>
+              <span className="wf-article-nav-title">{next.title} &rarr;</span>
+            </Link>
+          ) : (
+            <div />
+          )}
+        </div>
+
+        <div className="wf-article-footer-label">
+          Article {article.number} &middot; {series.title}
+        </div>
       </div>
     </>
   );
