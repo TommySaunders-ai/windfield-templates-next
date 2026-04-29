@@ -14,19 +14,21 @@ export function ArticleHeader({
   deck,
 }: ArticleHeaderProps) {
   return (
-    <header>
+    <header className="mb-10 pb-8 border-b border-border">
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-[11px] font-semibold tracking-[.18em] uppercase text-brand">
+        <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[.2em] uppercase text-brand">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand" />
           Series {seriesNumber} · Article {articleNumber} of {totalArticles}
         </span>
-        <span className="w-[44px] h-px bg-brand opacity-35" />
       </div>
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-fg mb-4">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.05] text-fg mb-4">
         {title}
       </h1>
-      <p className="text-lg text-fg-muted italic leading-relaxed mb-10">
-        {deck}
-      </p>
+      {deck && (
+        <p className="text-base md:text-lg text-fg-muted leading-relaxed max-w-[680px]" style={{ fontStyle: 'italic' }}>
+          {deck}
+        </p>
+      )}
     </header>
   );
 }

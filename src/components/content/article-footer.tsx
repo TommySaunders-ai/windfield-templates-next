@@ -19,32 +19,36 @@ export function ArticleFooter({
   articleNumber,
 }: ArticleFooterProps) {
   return (
-    <footer className="mt-14 pt-5 border-t border-border flex justify-between items-center flex-wrap gap-4">
-      {prev ? (
-        <Link
-          href={`/${seriesSlug}/${prev.slug}`}
-          className="border border-border rounded-[10px] px-4 py-2 text-[11.5px] font-semibold text-fg hover:bg-brand-muted hover:border-brand hover:text-brand transition"
-        >
-          ← {prev.title}
-        </Link>
-      ) : (
-        <span />
-      )}
+    <footer className="mt-16 pt-6 border-t border-border">
+      <div className="flex justify-between items-stretch gap-4 flex-wrap">
+        {prev ? (
+          <Link
+            href={`/${seriesSlug}/${prev.slug}`}
+            className="flex-1 min-w-[180px] border border-border rounded-xl px-5 py-4 hover:bg-brand/[0.04] hover:border-brand/30 transition-all group"
+          >
+            <p className="text-[9px] font-bold tracking-[.18em] uppercase text-fg-faint mb-1.5">Previous</p>
+            <p className="text-sm font-semibold text-fg group-hover:text-brand transition-colors">← {prev.title}</p>
+          </Link>
+        ) : (
+          <div className="flex-1" />
+        )}
 
-      <span className="text-[10.5px] text-fg-subtle tracking-[.1em] uppercase">
+        {next ? (
+          <Link
+            href={`/${seriesSlug}/${next.slug}`}
+            className="flex-1 min-w-[180px] border border-border rounded-xl px-5 py-4 text-right hover:bg-brand/[0.04] hover:border-brand/30 transition-all group"
+          >
+            <p className="text-[9px] font-bold tracking-[.18em] uppercase text-fg-faint mb-1.5">Next</p>
+            <p className="text-sm font-semibold text-fg group-hover:text-brand transition-colors">{next.title} →</p>
+          </Link>
+        ) : (
+          <div className="flex-1" />
+        )}
+      </div>
+
+      <p className="text-center text-[9px] font-semibold tracking-[.15em] uppercase text-fg-faint mt-6 mb-2">
         Article {articleNumber}
-      </span>
-
-      {next ? (
-        <Link
-          href={`/${seriesSlug}/${next.slug}`}
-          className="border border-border rounded-[10px] px-4 py-2 text-[11.5px] font-semibold text-fg hover:bg-brand-muted hover:border-brand hover:text-brand transition"
-        >
-          {next.title} →
-        </Link>
-      ) : (
-        <span />
-      )}
+      </p>
     </footer>
   );
 }
